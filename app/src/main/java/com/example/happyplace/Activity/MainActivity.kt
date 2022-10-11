@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         val deleteSwipeHandler = object : SwipeToDeleteCallback(this){
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val adapter = rv_happy_places_list.adapter as HappyPlaceAdapter
-               // adapter.notifyEditItem(this@MainActivity, viewHolder.adapterPosition, ADD_PLACE_ACTIVITY_REQUEST_CODE)
+
                 adapter.removeAt(viewHolder.adapterPosition)
 
                 getHappyPlacesListFromLocalDB()
