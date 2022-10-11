@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.happyplace.Activity.AddHappyPlaceActivity
+import com.example.happyplace.Activity.Database.DatabaseHandler
 import com.example.happyplace.Activity.MainActivity
 import com.example.happyplace.Activity.Models.HappyPlaceModel
 import com.example.happyplace.R
@@ -57,6 +58,14 @@ open class HappyPlaceAdapter(
     }
     interface OnClickListener{
         fun onClick(position: Int, model: HappyPlaceModel)
+    }
+    fun removeAt(position: Int){
+     val dbHandler = DatabaseHandler(context)
+     val isDeleted = dbHandler.deleteHappyPlace(list[position])
+     if (isDeleted > 0){
+         list.removeAt(position)
+         notifyItemRemoved(position)
+     }
     }
     override fun getItemCount(): Int {
         return list.size
