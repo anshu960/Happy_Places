@@ -69,7 +69,7 @@ class DatabaseHandler(context: Context) :
         return result
     }
 
-    fun UpdateHappyPlace(happyPlace: HappyPlaceModel):Int{
+    fun updateHappyPlace(happyPlace: HappyPlaceModel):Int{
         val db = this.writableDatabase
 
         val contentValues = ContentValues()

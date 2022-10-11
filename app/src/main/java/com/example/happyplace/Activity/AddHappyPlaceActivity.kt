@@ -92,10 +92,10 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
         if (mHappyPlaceDetails != null) {
             supportActionBar?.title = "Edit Happy Place"
 
-           // et_title.setText(mHappyPlaceDetails!!.title)
-          //  et_description.setText(mHappyPlaceDetails!!.description)
+            et_name.setText(mHappyPlaceDetails!!.name)
+            et_couple.setText(mHappyPlaceDetails!!.description)
             et_date.setText(mHappyPlaceDetails!!.date)
-           // et_location.setText(mHappyPlaceDetails!!.location)
+            et_address.setText(mHappyPlaceDetails!!.location)
             mLatitude = mHappyPlaceDetails!!.latitude
             mLongitude = mHappyPlaceDetails!!.longitude
 
@@ -163,7 +163,7 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
 
                         // Assigning all the values to data model class.
                         val happyPlaceModel = HappyPlaceModel(
-                            0,
+                            if (mHappyPlaceDetails == null) 0 else mHappyPlaceDetails!!.id,
                             et_name.text.toString(),
                             saveImageToInternalStorage.toString(),
                             et_couple.text.toString(),
@@ -175,13 +175,21 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
 
                         // Here we initialize the database handler class.
                         val dbHandler = DatabaseHandler(this)
-
-                        val addHappyPlace = dbHandler.addHappyPlace(happyPlaceModel)
-
-                        if (addHappyPlace > 0) {
-                            setResult(Activity.RESULT_OK)
-                            finish()//finishing activity
+                        if (mHappyPlaceDetails == null){
+                            val addHappyPlace = dbHandler.addHappyPlace(happyPlaceModel)
+                            if (addHappyPlace > 0) {
+                                setResult(Activity.RESULT_OK)
+                                finish()//finishing activity
+                            }
+                        }else{
+                            val updateHappyPlace = dbHandler.updateHappyPlace(happyPlaceModel)
+                            if (updateHappyPlace > 0) {
+                                setResult(Activity.RESULT_OK)
+                                finish()//finishing activity
+                            }
                         }
+
+
                     }
                 }
             }

@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
     private fun setupHappyPlaceRecyclerView(
         happyPlaceList: ArrayList<HappyPlaceModel>){
 
-        rv_happy_places_list.layoutManager =
-            LinearLayoutManager(this)
-            rv_happy_places_list.setHasFixedSize(true)
+
+          rv_happy_places_list.layoutManager =  LinearLayoutManager(this)
+          rv_happy_places_list.setHasFixedSize(true)
         val placeAdapter = HappyPlaceAdapter(this, happyPlaceList)
         rv_happy_places_list.adapter = placeAdapter
 
