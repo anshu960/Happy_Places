@@ -1,5 +1,6 @@
 package com.example.happyplace.Activity
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,6 +31,12 @@ class HappyPlaceDetailsActivity : AppCompatActivity() {
             tv_description.text = happyPlaceDetailModel.description
             tv_address.text = happyPlaceDetailModel.location
             tv_date.text = happyPlaceDetailModel.date
+
+            btn_view_on_map.setOnClickListener {
+                val intent = Intent(this, MapActivity::class.java)
+                intent.putExtra(MainActivity.EXTRA_PLACE_DETAILS, happyPlaceDetailModel)
+                startActivity(intent)
+            }
         }
     }
 }
