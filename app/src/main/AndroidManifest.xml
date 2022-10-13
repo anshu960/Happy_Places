@@ -32,7 +32,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="@string/google_API_Key" />
 
         <activity
             android:name=".Activity.MapActivity"
@@ -52,7 +52,7 @@
             android:theme="@style/CustomNoActionBarTheme">
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value="@string/google_API_Key" />
         </activity>
         <activity
             android:name=".Activity.AddHappyPlaceActivity"
@@ -62,7 +62,7 @@
             android:theme="@style/CustomNoActionBarTheme">
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value="@string/google_API_Key" />
         </activity>
         <activity
             android:name=".Activity.MainActivity"
@@ -75,7 +75,7 @@
 
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value="@string/google_API_Key" />
         </activity>
     </application>
 

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.happyplace.Activity.Models.HappyPlaceModel
 import com.example.happyplace.R
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -38,6 +39,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         val position = LatLng(mHappyPlaceDetails!!.latitude, mHappyPlaceDetails!!.longitude)
         googleMap.addMarker(MarkerOptions().position(position).title(mHappyPlaceDetails!!.location))
+        val newLatLngZoom = CameraUpdateFactory.newLatLngZoom(position, 15f)
+        googleMap.animateCamera(newLatLngZoom)
 
     }
 }
