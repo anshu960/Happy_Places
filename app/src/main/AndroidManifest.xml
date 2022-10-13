@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -19,16 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HappyPlace"
         tools:targetApi="31">
-        <activity
-            android:name=".Activity.MapActivity"
-            android:exported="false"
-            android:label="HAPPY PLACE MAP"
-            android:screenOrientation="portrait"
-            android:theme="@style/CustomNoActionBarTheme">
-            <meta-data
-                android:name="com.google.android.geo.API_KEY"
-                android:value="@string/google_API_Key" />
-        </activity>
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -42,8 +32,18 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_API_Key" />
+            android:value="YOUR_API_KEY" />
 
+        <activity
+            android:name=".Activity.MapActivity"
+            android:exported="false"
+            android:label="HAPPY PLACE MAP"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomNoActionBarTheme">
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/google_API_Key" />
+        </activity>
         <activity
             android:name=".Activity.HappyPlaceDetailsActivity"
             android:exported="false"
